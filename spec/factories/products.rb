@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product do
-    code { "MyString" }
-    name { "MyString" }
-    price { "9.99" }
+    sequence(:code) { |n| "PR#{n}" }
+    name { Faker::Commerce.product_name }
+    price { Faker::Commerce.price(range: 1..100.0, as_string: true) }
   end
 end
