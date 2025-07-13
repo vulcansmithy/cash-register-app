@@ -52,6 +52,9 @@ group :development, :test do
   # https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails', '6.5.0'
 
+  # https://github.com/faker-ruby/faker
+  gem 'faker', '3.5.2'
+  
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
   
