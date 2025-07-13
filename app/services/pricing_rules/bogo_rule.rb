@@ -1,5 +1,5 @@
 module PricingRules
   class BogofRule < BaseRule
-    #@TODO
+    # @TODO
   end
 end
