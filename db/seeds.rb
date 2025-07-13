@@ -11,17 +11,17 @@ products = [
   {
     code: 'GR1',
     name: 'Green Tea',
-    price: BigDecimal.new('3.11')
+    price: BigDecimal('3.11')
   },
   {
     code: 'SR1',
     name: 'Strawberries',
-    price: BigDecimal.new('5.00')
+    price: BigDecimal('5.00')
   },
   {
     code: 'CF1',
     name: 'Coffee',
-    price: BigDecimal.new('11.23')
+    price: BigDecimal('11.23')
   }
 ]
 
