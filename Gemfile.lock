@@ -337,13 +337,13 @@ DEPENDENCIES
   brakeman
   capybara
   debug
-  factory_bot_rails
+  factory_bot_rails (= 6.5.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
-  rspec-rails
+  rspec-rails (= 8.0.1)
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
