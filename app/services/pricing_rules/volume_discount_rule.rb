@@ -1,5 +1,5 @@
 module PricingRules
-  class BulkDiscountRule < BaseRuleB
+  class VolumeDiscountRule < BaseRule
     #@TODO
   end
 end
