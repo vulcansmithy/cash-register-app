@@ -2,25 +2,23 @@
 module PricingRules
   class BulkDiscountRule < BaseRule
     def calculate_discount
-      strawberry_items = eligible_items
-=begin      
-      return 0 if  strawberry_items.empty?
+      item_exist = eligible_items
+      return 0 unless item_exist
 
-      return 0 unless strawberry_items.first.quantity >= 3
+      # only apply bulk discount of the strawwberry item is 3 or more
+      return 0 unless item_exist.quantity >= 3
 
       # Calculate savings from reduced price
-      original_total = strawberry_items.first.subtotal
+      original_total = item_exist.subtotal
+
       discounted_price = BigDecimal("4.50")
-      new_total = strawberry_items.first.quantity * discounted_price
+      new_total = item_exist.quantity * discounted_price
       original_total - new_total
-=end
-      13.50
     end
 
     private
 
     def eligible_items
-      # @items.joins(:product).find_by(products: { code: "SR1" })
       @items.joins(:product).find_by(products: { code: "SR1" })
     end
   end
