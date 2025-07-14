@@ -20,14 +20,15 @@ RSpec.describe CartService do
       3.times { service.add_item('SR1') }
       expect(service.calculate_total_with_discounts).to eq(13.50)
     end
-=begin
+
     it 'applies volume discount for Coffee' do
       BigDecimal.limit(4)
       service = CartService.new
       3.times { service.add_item('CF1') }
-
-      expect(service.calculate_total_with_discounts).to eq(22.46)
+      
+      r = service.calculate_total_with_discounts
+      #expect(service.calculate_total_with_discounts).to eq(22.46)
+      expect(ture).to eq(false)
     end
-=end
   end
 end
