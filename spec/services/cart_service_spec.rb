@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe CartService do
-  let!(:green_tea) { FactoryBot.create(:product, code: 'GR1', price: 3.11) }
-  let!(:strawberry) { FactoryBot.create(:product, code: 'SR1', price: 5.00) }
-  let!(:coffee) { FactoryBot.create(:product, code: 'CF1', price: 11.23) }
+  let!(:green_tea) { FactoryBot.create(:product, :green_tea) }
+  let!(:strawberry) { FactoryBot.create(:product, :strawberry) }
+  let!(:coffee) { FactoryBot.create(:product, :coffee) }
 
   describe '#calculate_total_with_discounts' do
     it 'applies volume discount for Coffee' do
