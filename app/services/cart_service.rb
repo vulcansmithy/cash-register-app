@@ -2,15 +2,15 @@ class CartService
   attr_reader :cart_items
 
   def initialize
-    @cart_items = []
+    @cart_items = CartItem.all
   end
 
   def add_item(product_code)
     product = Product.find_by_code(product_code)
     raise ArgumentError, "Product not found" unless product
-puts "@DEBUG  #{product.price}"
 
-    existing_item = cart_items.find { |item| item.product.code == product_code }
+
+    existing_item = CartItem.joins(:product).find_by(products: { code: product.code })
     if existing_item
       update_quantity(existing_item)
     else
@@ -41,7 +41,7 @@ puts "@DEBUG  #{product.price}"
       product: product,
       quantity: 1,
       subtotal: product.price
-    )
+      )
   end
 
   def calculate_all_discounts
