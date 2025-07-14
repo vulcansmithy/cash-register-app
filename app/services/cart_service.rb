@@ -9,7 +9,6 @@ class CartService
     product = Product.find_by_code(product_code)
     raise ArgumentError, "Product not found" unless product
 
-
     existing_item = CartItem.joins(:product).find_by(products: { code: product.code })
     if existing_item
       update_quantity(existing_item)
@@ -25,7 +24,9 @@ class CartService
   def calculate_total_with_discounts
     subtotal = calculate_subtotal
     discounts = calculate_all_discounts
-    subtotal - discounts
+    r = subtotal - discounts
+puts "@DEBUG #{r}"
+    r
   end
 
   private
@@ -47,8 +48,8 @@ class CartService
   def calculate_all_discounts
     rules = [
       PricingRules::BogofRule.new(cart_items),
-      PricingRules::BulkDiscountRule.new(cart_items),
-      PricingRules::VolumeDiscountRule.new(cart_items)
+#      PricingRules::BulkDiscountRule.new(cart_items),
+#      PricingRules::VolumeDiscountRule.new(cart_items)
     ]
 
     rules.sum(&:calculate_discount)
