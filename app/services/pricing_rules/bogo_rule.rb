@@ -1,5 +1,20 @@
 module PricingRules
   class BogofRule < BaseRule
-    # @TODO
+    def calculate_discount
+      return 0 unless eligible_items.any?
+
+      # Count pairs of Green Tea items
+      item_count = eligible_items.size
+      pairs = item_count / 2
+
+      # Each pair gives one free item
+      eligible_items.first.price * pairs
+    end
+
+    private
+
+    def eligible_items
+      @items.select { |item| item.product.code == "GR1" }
+    end
   end
 end
