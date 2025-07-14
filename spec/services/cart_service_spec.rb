@@ -6,8 +6,7 @@ RSpec.describe CartService do
   let!(:coffee) { FactoryBot.create(:product, :coffee) }
 
   describe '#calculate_total_with_discounts' do
-
-    xit 'applies BOGO discount for Green Tea' do
+    it 'applies BOGO discount for Green Tea' do
       service = CartService.new
       service.add_item('GR1')
       service.add_item('GR1')
@@ -25,10 +24,7 @@ RSpec.describe CartService do
       BigDecimal.limit(4)
       service = CartService.new
       3.times { service.add_item('CF1') }
-      
-      r = service.calculate_total_with_discounts
-      #expect(service.calculate_total_with_discounts).to eq(22.46)
-      expect(ture).to eq(false)
+      expect(service.calculate_total_with_discounts).to eq(22.46)
     end
   end
 end

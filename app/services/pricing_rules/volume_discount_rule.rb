@@ -1,26 +1,27 @@
 module PricingRules
   class VolumeDiscountRule < BaseRule
     def calculate_discount
+      searched_item = eligible_items
+      return 0 unless searched_item
 
-      coffee_items = eligible_items
-      return 0 if coffee_items.empty?
-      
-      return 0 unless coffee_items.first.quantity >= 3
+      return 0 unless searched_item.quantity >= 3
 
       # reduce the price by 2/3 if the order coffee item  is more than or equal to 3
-      original_total = coffee_items.first.subtotal
+      original_total = searched_item.subtotal
 
-      two_thirds_price = (BigDecimal('2') / BigDecimal('3')) * coffee_items.first.product.price 
+      # compute the 2/3 of the price of product price
+      two_thirds_price = (BigDecimal("2") / BigDecimal("3")) * searched_item.product.price
 
-      new_total = coffee_items.first.quantity * two_thirds_price
-      
+      # compute the new total
+      new_total = searched_item.quantity * two_thirds_price
+
       original_total - new_total
     end
 
     private
 
     def eligible_items
-      @items.joins(:product).where(products: { code: "CF1" })
+      @items.joins(:product).find_by(products: { code: "CF1" })
     end
   end
 end
