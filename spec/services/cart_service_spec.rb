@@ -14,7 +14,7 @@ RSpec.describe CartService do
 
       expect(service.calculate_total_with_discounts).to eq(3.11)
     end
-=begin    
+
     it 'applies bulk discount for Strawberries' do
       service = CartService.new
       3.times { service.add_item('SR1') }
@@ -29,6 +29,5 @@ RSpec.describe CartService do
 
       expect(service.calculate_total_with_discounts).to eq(22.46)
     end
-=end
   end
 end

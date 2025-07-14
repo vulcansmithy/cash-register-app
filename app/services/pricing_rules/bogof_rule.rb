@@ -1,20 +1,22 @@
 module PricingRules
   class BogofRule < BaseRule
     def calculate_discount
-      return 0 unless eligible_items.any?
+      item_exist = eligible_items
+      return 0 unless item_exist
 
       # Count pairs of Green Tea items
-      item_count = eligible_items.first.quantity
+      item_count = item_exist.quantity
       pairs = item_count / 2
 
       # Each pair gives one free item
-      eligible_items.first.product.price * pairs
+      result = item_exist.product.price * pairs
+      result
     end
 
     private
 
     def eligible_items
-      @items.joins(:product).where(products: { code: "GR1" })
+      @items.joins(:product).find_by(products: { code: "GR1" })
     end
   end
 end
