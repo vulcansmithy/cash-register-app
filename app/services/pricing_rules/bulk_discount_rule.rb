@@ -11,7 +11,7 @@ module PricingRules
       # Calculate savings from reduced price
       original_total = item_exist.subtotal
 
-      discounted_price = BigDecimal("4.50")
+      discounted_price = Money.new(450, "EUR")
       new_total = item_exist.quantity * discounted_price
       original_total - new_total
     end

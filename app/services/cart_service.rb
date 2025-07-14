@@ -40,7 +40,7 @@ class CartService
       product: product,
       quantity: 1,
       subtotal: product.price
-      )
+    )
   end
 
   def calculate_all_discounts
