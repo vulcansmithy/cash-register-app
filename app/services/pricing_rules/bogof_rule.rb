@@ -14,7 +14,6 @@ module PricingRules
     private
 
     def eligible_items
-      # @items.select { |item| item.product.code == "GR1" }
       @items.joins(:product).where(products: { code: "GR1" })
     end
   end

@@ -18,6 +18,7 @@ module PricingRules
     private
 
     def eligible_items
+      # @items.joins(:product).find_by(products: { code: "SR1" })
       @items.joins(:product).where(products: { code: "SR1" })
     end
   end
