@@ -8,6 +8,7 @@ class CartService
   def add_item(product_code)
     product = Product.find_by_code(product_code)
     raise ArgumentError, "Product not found" unless product
+puts "@DEBUG  #{product.inspect}"
 
     existing_item = cart_items.find { |item| item.product.code == product_code }
     if existing_item

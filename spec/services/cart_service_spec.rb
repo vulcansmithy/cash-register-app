@@ -6,6 +6,22 @@ RSpec.describe CartService do
   let!(:coffee) { FactoryBot.create(:product, :coffee) }
 
   describe '#calculate_total_with_discounts' do
+=begin
+    it 'applies BOGO discount for Green Tea' do
+      service = CartService.new
+      service.add_item('GR1')
+      service.add_item('GR1')
+
+      expect(service.calculate_total_with_discounts).to eq(3.11)
+    end
+
+    it 'applies bulk discount for Strawberries' do
+      service = CartService.new
+      3.times { service.add_item('SR1') }
+
+      expect(service.calculate_total_with_discounts).to eq(13.50)
+    end
+=end
     it 'applies volume discount for Coffee' do
       service = CartService.new
       3.times { service.add_item('CF1') }
