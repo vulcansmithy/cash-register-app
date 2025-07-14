@@ -24,9 +24,7 @@ class CartService
   def calculate_total_with_discounts
     subtotal = calculate_subtotal
     discounts = calculate_all_discounts
-    r = subtotal - discounts
-puts "@DEBUG #{r}"
-    r
+    subtotal - discounts
   end
 
   private
