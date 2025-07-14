@@ -46,7 +46,7 @@ class CartService
   def calculate_all_discounts
     rules = [
       PricingRules::BogofRule.new(cart_items),
-#      PricingRules::BulkDiscountRule.new(cart_items),
+      PricingRules::BulkDiscountRule.new(cart_items),
 #      PricingRules::VolumeDiscountRule.new(cart_items)
     ]
 
