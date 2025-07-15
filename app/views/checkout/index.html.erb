@@ -1,2 +1,56 @@
-<h1>Checkout#index</h1>
-<p>Find me in app/views/checkout/index.html.erb</p>
+<h1>Cash Register</h1>
+
+<div class="products">
+  <h2>Available Products</h2>
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.code %></td>
+        <td><%= product.name %></td>
+        <td><%= product.formatted_price %></td>
+        <td>
+          <%= form_tag({controller: 'checkout', action: 'add'}, method: 'post') do %>
+            <input type="hidden" name="product_code" value="<%= product.code %>">
+            <input type="submit" value="Add to Cart" class="btn">
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="cart">
+  <h2>Cart</h2>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th></th>
+    </tr>
+    <% @cart_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.subtotal.format %></td>
+        <td>
+          <%= form_tag({controller: 'checkout', action: 'remove', id: item.id}, method: 'post') do %>
+            <input type="submit" value="Remove" class="btn">
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <div class="totals">
+    <p>Subtotal: <%= @subtotal.format %></p>
+    <p>Discounts: <%= (@subtotal - @total).format %></p>
+    <p>Total: <%= @total.format %></p>
+  </div>
+</div>
