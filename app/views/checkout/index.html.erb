@@ -38,7 +38,7 @@
       <tr>
         <td><%= item.product.name %></td>
         <td><%= item.quantity %></td>
-        <td><%= item.subtotal.format %></td>
+        <td><%= humanized_money_with_symbol(item.subtotal.format) %></td>
         <td>
           <%= form_tag({controller: 'checkout', action: 'remove', id: item.id}, method: 'delete') do %>
             <input type="submit" value="Remove" class="btn">
