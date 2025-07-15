@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  resources :checkout, only: [ :index, :add, :remove ]
-  root "checkout#index"
+  # Root route to the checkout index
+  root 'checkout#index'
+  
+  # Routes for the checkout controller
+  resources :checkout, only: [:index] do
+    # Add routes for add and remove actions
+    collection do
+      post :add
+      delete :remove
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

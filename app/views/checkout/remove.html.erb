@@ -1,2 +1,19 @@
-<h1>Checkout#remove</h1>
-<p>Find me in app/views/checkout/remove.html.erb</p>
+<!-- app/views/checkout/remove.html.erb -->
+<h2>Remove Item from Cart</h2>
+
+<%= form_tag({controller: 'checkout', action: 'remove', id: @cart_item.id}, method: 'delete') do %>
+  <div class="remove-form">
+    <p>Are you sure you want to remove this item from your cart?</p>
+    
+    <div class="item-details">
+      <p><strong>Product:</strong> <%= @cart_item.product.name %></p>
+      <p><strong>Quantity:</strong> <%= @cart_item.quantity %></p>
+      <p><strong>Subtotal:</strong> <%= @cart_item.subtotal %></p>
+    </div>
+
+    <div class="form-actions">
+      <%= submit_tag "Remove Item", class: "btn btn-danger" %>
+      <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>
