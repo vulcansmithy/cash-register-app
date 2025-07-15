@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+ruby "3.3.8"
 
 gem "bootsnap", require: false
 gem "importmap-rails"
