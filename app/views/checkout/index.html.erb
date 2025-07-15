@@ -40,7 +40,7 @@
         <td><%= item.quantity %></td>
         <td><%= item.subtotal.format %></td>
         <td>
-          <%= form_tag({controller: 'checkout', action: 'remove', id: item.id}, method: 'post') do %>
+          <%= form_tag({controller: 'checkout', action: 'remove', id: item.id}, method: 'delete') do %>
             <input type="submit" value="Remove" class="btn">
           <% end %>
         </td>
