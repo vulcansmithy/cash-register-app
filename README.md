@@ -20,7 +20,11 @@
 ## Things need improving
 
 - The web interface could be better. Currently there's only "remove" function in the Cash Register app. Ideally, there is also "Subtract", e.g., added 3 Green Tea. Use "Subtract" to reduce from 3 items to 2 items.
-- Just notice the display of the value when whole number doesn't display the cent value. e.g, if the price is 14.00, it just display it as "€14". This may change. I might be updating the app to fix this issue. As of now my priority to deploy a working version online
+- Just notice the display of the value when whole number doesn't display the cent value. e.g, if the price is 14.00, it just display it as "€14". This may change. I might be updating the app to fix this issue. As of now my priority to deploy a working version online. 
+  - **Update 7/18/2025**
+    - this small issue is already fixed. Refactored the code to properly display the any amount including their cent value.
+    - additional code cleanup was also done.
+
 
 ## Screenshots
 ![Dashboard View](/app/assets/images/screenshots/screenshot-01.png)
