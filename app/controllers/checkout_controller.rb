@@ -4,7 +4,6 @@ class CheckoutController < ApplicationController
     @cart_items = CartItem.all
     @subtotal = CartService.new.calculate_subtotal
     @total = CartService.new.calculate_total_with_discounts
-puts "@DEBUG L:#{__LINE__}    @total=#{@total.format} #{@total} #{@total.class}"
   end
 
   def add

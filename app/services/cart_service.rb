@@ -18,7 +18,7 @@ class CartService
   end
 
   def calculate_subtotal
-    cart_items.sum(&:subtotal)
+    cart_items.sum(&:subtotal) + Money.from_amount(0.00)
   end
 
   def calculate_total_with_discounts
