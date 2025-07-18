@@ -118,10 +118,6 @@ MoneyRails.configure do |config|
   # Configure money formatting options
   config.default_format = {
     precision: 2,
-    strip_insignificant_zeros: false,
-    symbol: nil,           # Will use €
-    sign_before_symbol: nil, # Will be handled by locale
-    no_cents_if_whole: nil  # Will omit cents for whole numbers
   }
 
   # Enable validations for monetized fields

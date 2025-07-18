@@ -13,7 +13,7 @@
       <tr>
         <td><%= product.code %></td>
         <td><%= product.name %></td>
-        <td><%= humanized_money_with_symbol(product.formatted_price) %></td>
+        <td><%= product.price.format %></td>
         <td>
           <%= form_tag({controller: 'checkout', action: 'add'}, method: 'post') do %>
             <input type="hidden" name="product_code" value="<%= product.code %>">
@@ -38,7 +38,7 @@
       <tr>
         <td><%= item.product.name %></td>
         <td><%= item.quantity %></td>
-        <td><%= humanized_money_with_symbol(item.subtotal.format) %></td>
+        <td><%= item.subtotal.format %></td>
         <td>
           <%= form_tag({controller: 'checkout', action: 'remove', id: item.id}, method: 'delete') do %>
             <input type="submit" value="Remove" class="btn">
@@ -50,8 +50,8 @@
   
   
   <div class="totals">
-    <p>Subtotal: <%= humanized_money_with_symbol(@subtotal) %></p>
-    <p>Discounts: <%=humanized_money_with_symbol(@subtotal - @total) %></p>
-    <p>Total: <%= humanized_money_with_symbol(@total) %></p>
+    <p>Subtotal: <%= @subtotal.format %></p>
+    <p>Discounts: <%= (@subtotal - @total).format %></p>
+    <p>Total: <%= @total.format %></p>
   </div>
 </div>
