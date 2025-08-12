@@ -20,7 +20,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "factory_bot_rails", "6.5.0"
   gem "faker", "3.5.2"
-  gem "rspec-rails", "8.0.1"
+  gem "rspec-rails", "8.0.2"
   gem "rubocop-rails-omakase", require: false
 end
 
