@@ -18,7 +18,7 @@ group :development, :test do
   gem "awesome_print"
   gem "brakeman", require: false
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "factory_bot_rails", "6.5.0"
+  gem "factory_bot_rails", "6.5.1"
   gem "faker", "3.5.2"
   gem "rspec-rails", "8.0.1"
   gem "rubocop-rails-omakase", require: false
